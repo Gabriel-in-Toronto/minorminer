@@ -85,8 +85,8 @@ class parameter_processor {
 
     vector<int> _filter_fixed_vars() {
         vector<int> unscrew(num_vars);
-        assert(var_fixed_unscrewed.size() == num_vars);
-        assert(num_fixed < num_vars);
+        //assert(var_fixed_unscrewed.size() == num_vars);
+        //assert(num_fixed < num_vars);
         for (unsigned int i = 0, front = 0, back = num_vars - num_fixed; i < num_vars; i++) {
             if (var_fixed_unscrewed[i]) {
                 unscrew[back++] = i;
@@ -128,6 +128,7 @@ class parameter_processor {
         return U;
     }
 };
+
 
 template <bool parallel, bool fixed, bool restricted, bool verbose>
 class pathfinder_type {

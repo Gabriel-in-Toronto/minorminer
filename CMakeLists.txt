@@ -5,8 +5,8 @@ project(minorminer)
 # set(VERSION_MINOR 5)
 # set(VERSION_PATCH 0)
 
-option(MINORMINER_BUILD_TESTS "Build unit tests." OFF)
-option(MINORMINER_BUILD_EXAMPLES "Build examples." OFF)
+option(MINORMINER_BUILD_TESTS "Build unit tests." ON)
+option(MINORMINER_BUILD_EXAMPLES "Build examples." ON)
 
 add_library(minorminer INTERFACE)
 target_include_directories(minorminer INTERFACE ${PROJECT_SOURCE_DIR}/include)

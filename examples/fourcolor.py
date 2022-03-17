@@ -47,7 +47,7 @@ supplies those additional requirements to `find_embedding`.
 
 # before we get to anything else, let's get some imports out of the way.
 from __future__ import print_function
-from past.builtins import xrange
+# from past.builtins import xrange
 import networkx as nx
 import dwave_networkx as dnx
 from minorminer import find_embedding
@@ -88,10 +88,10 @@ def chimera_blocks(M=16, N=16, L=4):
     """
     Generator for blocks for a chimera block quotient
     """
-    for x in xrange(M):
-        for y in xrange(N):
+    for x in range(M):
+        for y in range(N):
             for u in (0, 1):
-                yield tuple((x, y, u, k) for k in xrange(L))
+                yield tuple((x, y, u, k) for k in range(L))
 
 
 def chimera_block_quotient(G, blocks):
@@ -231,6 +231,8 @@ if __name__ == "__main__":
     c = clock()
     emb = find_embedding(graph4.edges(), H.edges(),
                          verbose=0, chainlength_patience=30)
+    print("G size is ",len(graph4), "H size is ", len(H))
+    print("G edges size is ",len(graph4.edges()), "H edges size is ", len(H.edges()))
     try:
         print("raw embedding %d seconds, " % (clock() - c), end='')
         cl = max(len(c) for c in emb.values())
@@ -246,6 +248,6 @@ if __name__ == "__main__":
 
     # finally, we translate the embedding back to integer labels
     newemb = {v: [unlab[q] for q in c] for v, c in emb.items()}
-    for v in graph:
-        for k in range(4):
-            print((v, k), newemb[v, k])
+    #for v in graph:
+    #    for k in range(4):
+    #        print((v, k), newemb[v, k])
